@@ -16,6 +16,51 @@ public class Week_05 {
 	private WebDriver driver;
 	private String baseUrl;
 	
+//	Cau 1
+	@Test(enabled = false)
+	public void getTotalRowNumber() throws Exception{
+		driver.get(baseUrl);
+		
+		List <WebElement> rows = driver.findElements(By.xpath("//*[@id='leftcontainer']/table/tbody/tr/td[1]"));
+		System.out.println("No of rows are: " + rows.size());
+	}
+	
+//	Cau 2
+	@Test(enabled = false)
+	public void getTotalColNumber() throws Exception{
+		driver.get(baseUrl);
+		List <WebElement> cols = driver.findElements(By.xpath("//*[@id='leftcontainer']/table/thead/tr/th"));
+		System.out.println("No of cols are: " + cols.size());
+	}
+	
+//	Cau 3
+	public void getRowNumberByValue(String value) throws Exception{
+		List <WebElement> column = driver.findElements(By.xpath("//*[@id='leftcontainer']/table/tbody/tr/td[1]"));
+		for(int i = 0; i < column.size(); i++) {
+			if(column.get(i).getText().equals(value)) {
+				System.out.println("Value is: " + (i + 1));
+			}
+		}
+	}
+	
+//	Cau 4
+	@Test(enabled = false)
+	public void getTableCellValue(int row, int col) throws Exception{
+		WebElement find = driver.findElement(By.xpath("//*[@id='leftcontainer']/table/tbody/tr[" + row + "]/td[" + col + "]"));
+		System.out.println("col: " + col + " " + "row: " + row + " " + find.getText());
+	}
+	
+//	Cau 5
+	public void checkItemExistsOnTable(String result) throws Exception{
+		List <WebElement> check = driver.findElements(By.xpath("/*[@id='leftcontainer']/table/tbody/tr/td[1]"));
+		for(int i = 0; i < check.size(); i++) {
+			if(check.get(i).getText().equals(result)) {
+				System.out.println("kq ton tai ");
+				break;
+			}
+		}
+	}
+	
 	@BeforeTest
 	public void beforeTest() throws Exception{
 		options = new ChromeOptions();
@@ -24,47 +69,16 @@ public class Week_05 {
 		baseUrl = "http://demo.guru99.com/test/web-table-element.php";
 	}
 	
-	@Test(enabled = false)
-	public void getTotalRowNumber() throws Exception{
-		driver.get(baseUrl);
-		
-		List <WebElement> rows = driver.findElements(By.xpath("//*[@id='leftcontainer']/table/tbody/tr/td[1]"));
-		System.out.println("No of rows are: " + rows.size());
-		
-		List <WebElement> cols = driver.findElements(By.xpath("//*[@id='leftcontainer']/table/thead/tr/th"));
-		System.out.println("No of cols are: " + cols.size());
-	}
-	
-	@Test(enabled = false)
-	public void getTotalColNumber() throws Exception{
-		driver.get(baseUrl);
-		List <WebElement> cols = driver.findElements(By.xpath("//*[@id='leftcontainer']/table/thead/tr/th"));
-		System.out.println("No of cols are: " + cols.size());
-	}
-	
-	public void getRowNumberByValue(String value) throws Exception{
-		driver.get(baseUrl);
-		List <WebElement> column = driver.findElements(By.xpath("//*[@id='leftcontainer']/table/tbody/tr/td[1]"));
-		for(int i = 0; i < column.size(); i++) {
-			if(column.get(i).getText().equals(value)) {
-				System.out.println("Value is: " + (i + 1));
-			}
-		}
-	}
-	@Test()
+	@Test
 	public void Test() throws Exception{
-//		getRowNumberByValue("IDFC Bank");
-		getTableCellValue(2, 3);
-	}
-	
-	public void getTableCellValue(int row, int col) throws Exception{
 		driver.get(baseUrl);
-		WebElement find = driver.findElement(By.xpath("//*[@id='leftcontainer']/table/tbody/tr[" + row + "]/td[" + col + "]"));
-		System.out.println("col: " + col + " " + "row: " + row + " " + find.getText());
+//		getRowNumberByValue(driver, "IDFC Bank");
+//		getTableCellValue(driver, 2, 3);
+		checkItemExistsOnTable("UCO Bank");
 	}
-	
+
 	@AfterTest
-	public void afterTest() throws Exception{
+	public void afterTest() throws Exception{	
 //		driver.close();
 	}
 

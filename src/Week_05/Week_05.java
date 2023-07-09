@@ -79,7 +79,7 @@ public class Week_05 {
 
 	@AfterTest
 	public void afterTest() throws Exception{	
-//		driver.close();
+		driver.close();
 	}
 
 }

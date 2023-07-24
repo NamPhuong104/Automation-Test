@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="Failed suite [Exercise]" guice-stage="DEVELOPMENT">
+  <test thread-count="1" parallel="tests" name="exercise(failed)">
+    <classes>
+      <class name="orangeHRM.assgnLeave">
+        <methods>
+          <include name="assignL"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- orangeHRM.assgnLeave -->
+    </classes>
+  </test> <!-- exercise(failed) -->
+</suite> <!-- Failed suite [Exercise] -->

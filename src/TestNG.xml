@@ -5,8 +5,7 @@
 
 	<test name="exercise">
 		<classes>
-			<class name="exercise.DemoA" />
-			<class name="exercise.DemoB" />
+			<class name="orangeHRM.assgnLeave" />
 		</classes>
 	</test>
 

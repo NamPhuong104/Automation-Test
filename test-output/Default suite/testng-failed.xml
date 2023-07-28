@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="orangeHRM.generalFunction">
+      <class name="orangeHRM.assignLeave">
         <methods>
+          <include name="testReject"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
-          <include name="assignL"/>
         </methods>
-      </class> <!-- orangeHRM.generalFunction -->
+      </class> <!-- orangeHRM.assignLeave -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

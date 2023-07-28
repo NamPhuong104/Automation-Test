@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 import org.testng.annotations.AfterMethod;
 
 public class generalFunction {
@@ -95,7 +94,7 @@ public class generalFunction {
 				.findElement(By.xpath("//div[@class = \"oxd-grid-4 orangehrm-full-width-grid\"]/div[1]//input"));
 		click.click();
 		
-		Thread.sleep(3000);
+//		Thread.sleep(1000);
 		List<WebElement> fromDate = driver.findElements(By.xpath("//div[@class= \"oxd-calendar-date\"]"));
 		for (int i = 0; i < fromDate.size(); i++) {
 			if (fromDate.get(i).getText().equals(day)) {
@@ -111,7 +110,7 @@ public class generalFunction {
 				.findElement(By.xpath("//div[@class = \"oxd-grid-4 orangehrm-full-width-grid\"]/div[2]//input"));
 		click.click();
 
-		Thread.sleep(3000);
+//		Thread.sleep(1000);
 		List<WebElement> fromDate = driver.findElements(By.xpath("//div[@class= \"oxd-calendar-date\"]"));
 		for (int i = 0; i < fromDate.size(); i++) {
 			if (fromDate.get(i).getText().equals(day)) {
@@ -120,13 +119,45 @@ public class generalFunction {
 			}
 		}
 	}
+	
+	
+	public static void partialDay(String value) throws Exception{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		WebElement click = driver.findElement(By.xpath("//form[@class = \"oxd-form\"]//div[4]//div[@class = \"oxd-select-text oxd-select-text--active\"]"));
+		click.click();
+		
+//		Thread.sleep(3000);
+		List<WebElement> partialDay = driver.findElements(By.xpath("//div[@class = \"oxd-select-option\"]"));
+		for(int i = 0; i <partialDay.size(); i++) {
+			if(partialDay.get(i).getText().equals(value)) {
+				partialDay.get(i).click();
+				break;
+			}
+		}
+	}
 
+	public static void duration(String value) throws Exception{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		WebElement click = driver.findElement(By.xpath("//form[@class = \"oxd-form\"]//div[4]//div[@class =\"oxd-grid-item oxd-grid-item--gutters\"][2]"));
+		click.click();
+		
+//		Thread.sleep(3000);
+		List<WebElement> duration = driver.findElements(By.xpath("//div[@class = \"oxd-select-option\"]"));
+		for(int i = 0; i < duration.size(); i++) {
+			if(duration.get(i).getText().equals(value)) {
+				duration.get(i).click();
+				break;
+			}
+		}
+	}
+	
+	
 	public static void comments(String value) throws Exception {
 		WebElement click = driver
 				.findElement(By.xpath("//textarea[@class= \"oxd-textarea oxd-textarea--active oxd-textarea--resize-vertical\"]"));
 		click.click();
 		
-		Thread.sleep(3000);
+//		Thread.sleep(3000);
 		WebElement comments = driver.findElement(
 				By.xpath("//textarea[@class = \"oxd-textarea oxd-textarea--focus oxd-textarea--resize-vertical\"]"));
 		comments.sendKeys(value);
@@ -135,27 +166,26 @@ public class generalFunction {
 	public static void submit() throws Exception {
 		WebElement submit = driver.findElement(By.xpath("//button[@type= \"submit\"]"));
 		submit.click();
-
+		
+		Thread.sleep(3000);
 		WebElement okButton = driver.findElement(By.xpath(
 				"//button[@class= \"oxd-button oxd-button--medium oxd-button--secondary orangehrm-button-margin\"]"));
 		okButton.click();
 	}
-
-	@Test
-	public void assignL() throws Exception  {
-		login("admin", "admin123");
-		selectModule("Leave");
-		selectFunc("Assign Leave");
-		findEmployeeName("a", "Odis Adalwin");
-		selectLeaveType("CAN - Personal");
-		selectFromDate("25");
-		comments("Automation Test");
-		submit();
-
+	
+	public static void reject(String nameEmp) throws Exception {
+		List<WebElement> reject = driver.findElements(By.xpath("//div[@class='oxd-table-cell oxd-padding-cell'][3]"));
+		Thread.sleep(3000);
+		for(int i = 0; i < reject.size(); i++) {
+			if(reject.get(i).getText().equals(nameEmp)) {
+				List<WebElement> click = driver.findElements(By.xpath("//div[@class = \"oxd-table-cell-actions\"]/button[text() = \" Reject \"]"));
+				click.get(i).click();
+			}
+		}
 	}
 
 	@AfterMethod
 	public void afterTest() throws Exception {
-		driver.close();
+//		driver.close();
 	}
 }

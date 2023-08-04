@@ -13,9 +13,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.testng.annotations.AfterTest;
 
 public class Week03 {
 	private ChromeOptions options;
@@ -74,17 +74,17 @@ public class Week03 {
 		String bookName = "Self help books";
 		WebElement bookListElement = driver.findElement(By.id("booksCheckboxes"));
 		List<WebElement> bookChildElements = bookListElement.findElements(By.name("books"));
-		for (int i = 0; i < bookChildElements.size(); i++) {
-			if (bookChildElements.get(i).getAttribute("value").equals(bookName)) {
-				bookChildElements.get(i).click();
+		for (WebElement bookChildElement : bookChildElements) {
+			if (bookChildElement.getAttribute("value").equals(bookName)) {
+				bookChildElement.click();
 				break;
 			}
 		}
 
 		// Check option exists on radio button
 		boolean isFailed = true;
-		for (int i = 0; i < bookChildElements.size(); i++) {
-			if (bookChildElements.get(i).getAttribute("value").equals(bookName)) {
+		for (WebElement bookChildElement : bookChildElements) {
+			if (bookChildElement.getAttribute("value").equals(bookName)) {
 				isFailed = false;
 				Assert.assertEquals(true, true);
 			}
@@ -120,13 +120,13 @@ public class Week03 {
 		actions
 				.click(bicycle)
 				.perform();
-		
+
 		// b
 		actions
 				.moveToElement(driver.findElement(By.id("labelText")))
 				.doubleClick()
 				.perform();
-		
+
 		// c
 		actions
 				.moveToElement(messageTextBox)
@@ -135,7 +135,7 @@ public class Week03 {
 				.sendKeys(messageTextBox, "hi there")
 				.keyUp(Keys.SHIFT)
 				.perform();
-		
+
 		// d
 		actions
 				.moveToElement(click)

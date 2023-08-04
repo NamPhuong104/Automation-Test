@@ -24,14 +24,14 @@ public class Week07 implements ITestListener {
 		driver = new ChromeDriver(options);
 		driver.get(baseUrl);
 	}
-	
+
 	@Test
 	public void Login() throws Exception {
 		driver.findElement(By.name("uid")).sendKeys("mngr34926");
 		driver.findElement(By.name("password")).sendKeys("amUpenu");
 		driver.findElement(By.name("btnLogin")).click();
 	}
-	
+
 	@Test
 	public void TestToFail() throws Exception {
 		System.out.println("This method to test fail");

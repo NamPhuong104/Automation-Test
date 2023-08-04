@@ -1,23 +1,15 @@
 package exercise;
 
 import java.io.File;
-
 import java.io.FileInputStream;
-
 import java.io.FileOutputStream;
-
 import java.io.IOException;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
 import org.apache.poi.ss.usermodel.Cell;
-
 import org.apache.poi.ss.usermodel.Row;
-
 import org.apache.poi.ss.usermodel.Sheet;
-
 import org.apache.poi.ss.usermodel.Workbook;
-
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class writeGuru99ExcelFile {
@@ -56,9 +48,9 @@ public class writeGuru99ExcelFile {
 
             guru99Workbook = new HSSFWorkbook(inputStream);
 
-        }    
+        }
 
-    //Read excel sheet by sheet name    
+    //Read excel sheet by sheet name
 
     Sheet sheet = guru99Workbook.getSheet(sheetName);
 
@@ -101,7 +93,7 @@ public class writeGuru99ExcelFile {
     //close output stream
 
     outputStream.close();
-	
+
     }
 
     public static void main(String...strings) throws IOException{

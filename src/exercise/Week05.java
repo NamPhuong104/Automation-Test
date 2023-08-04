@@ -15,12 +15,12 @@ public class Week05 {
 	private ChromeOptions options;
 	private WebDriver driver;
 	private String baseUrl;
-	
+
 	public void getTotalRowNumber() throws Exception {
 		List<WebElement> row = driver.findElements(By.xpath("//table[@class='dataTable']/tbody/tr"));
 		System.out.println("No of rows are: " + row.size());
 	}
-	
+
 	public void getTotalColumnNumber() throws Exception {
 		List<WebElement> col = driver.findElements(By.xpath("//table[@class='dataTable']/thead/tr/th"));
 		System.out.println("No of columns are: " + col.size());
@@ -35,22 +35,22 @@ public class Week05 {
 			}
 		}
 	}
-	
+
 	public void getTableCellValue(int row, int col) throws Exception {
 		WebElement index = driver.findElement(By.xpath("//table[@class='dataTable']/tbody/tr[" + row + "]/td[" + col + "]"));
 		System.out.println("Value at row " + row + " column " + col + " " + index.getText());
 	}
-	
+
 	public void checkItemExistsOnTable(String value) throws Exception {
 		List<WebElement> row = driver.findElements(By.xpath("//table[@class='dataTable']/tbody/tr/td[1]"));
-		for (int i = 0; i < row.size(); i++) {
-			if(row.get(i).getText().equals(value)) {
+		for (WebElement element : row) {
+			if(element.getText().equals(value)) {
 				System.out.println(value + " exists on table");
 				break;
 			}
 		}
 	}
-	
+
 	@BeforeTest
 	public void beforeTest() throws Exception {
 		options = new ChromeOptions();
@@ -58,7 +58,7 @@ public class Week05 {
 		driver = new ChromeDriver(options);
 		baseUrl = "https://demo.guru99.com/test/web-table-element.php";
 	}
-	
+
 	@Test
 	public void test() throws Exception {
 		driver.get(baseUrl);
@@ -68,10 +68,10 @@ public class Week05 {
 		getTableCellValue(10, 3);
 		checkItemExistsOnTable("REC");
 	}
-	
+
 	@AfterTest
 	public void afterTest() throws Exception {
 		driver.close();
 	}
-	
+
 }

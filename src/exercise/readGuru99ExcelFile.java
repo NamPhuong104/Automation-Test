@@ -3,6 +3,7 @@ package exercise;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -72,9 +73,9 @@ public class readGuru99ExcelFile {
         }
 
         System.out.println();
-    } 
+    }
 
-    }  
+    }
 
     //Main function is calling readExcel function to read data from excel file
 

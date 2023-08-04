@@ -6,11 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class Week06 {
 	private ChromeOptions options;
@@ -53,7 +53,7 @@ public class Week06 {
 	public void goBackToHome() throws Exception {
 		driver.findElement(By.linkText("Home")).click();
 	}
-	
+
 	//Exercise 2
 	@Test(priority = 0)
 	public void verifyRegisterSuccessfully() throws Exception {
@@ -67,7 +67,7 @@ public class Week06 {
 		confirmPassword.sendKeys("test");
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
 	}
-	
+
 	@Test(priority = 1)
 	public void verifyLoginSuccessfully() throws Exception {
 		WebElement userName = driver.findElement(By.xpath("//input[@name='userName']"));
@@ -76,14 +76,14 @@ public class Week06 {
 		password.sendKeys("test");
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
 	}
-	
+
 	@Test(priority = 2)
 	public void verifyFindFlightTicket() throws Exception {
 		driver.findElement(By.linkText("Flights")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//input[@name='findFlights']")).click();
 	}
-	
+
 
 	@AfterTest()
 	public void afterTest() throws Exception {

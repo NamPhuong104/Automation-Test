@@ -21,9 +21,9 @@ public class Week04 {
 	public void selectMenuItem(String menuItem) {
 		List<WebElement> menuChildElements = driver.findElements(
 				By.xpath("//div[@class=\"menu-block\"]/ul/child::li//a[contains(text()," + menuItem + ")]"));
-		for (int i = 0; i < menuChildElements.size(); i++) {
-			if (menuChildElements.get(i).getText().contentEquals(menuItem)) {
-				menuChildElements.get(i).click();
+		for (WebElement menuChildElement : menuChildElements) {
+			if (menuChildElement.getText().contentEquals(menuItem)) {
+				menuChildElement.click();
 				break;
 			}
 		}
@@ -67,7 +67,7 @@ public class Week04 {
 		copy.click();
 		driver.switchTo().alert().accept();
 	}
-	
+
 	@AfterTest
 	public void afterTest() throws Exception {
 		driver.close();

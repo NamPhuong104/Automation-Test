@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class OrangelHRMCommon {
 	WebDriver driver;
@@ -28,6 +29,9 @@ public class OrangelHRMCommon {
 
 	@FindBy(xpath = "//button[@type= 'submit']")
 	WebElement login;
+	
+	@FindBy(xpath = "//p[@class='oxd-text oxd-text--p oxd-text--toast-message oxd-toast-content-text']")
+	WebElement toastResult;
 
 
 //	Login
@@ -42,8 +46,6 @@ public class OrangelHRMCommon {
 	public void loginBtn() {
 		login.click();
 	}
-
-
 
 	public void loginToOrangel(String userName, String password) {
 		this.setUserName(userName);
@@ -105,6 +107,20 @@ public class OrangelHRMCommon {
 			}
 		}
 	}
+	
+	public String getToastResult() {
+		wait.until(ExpectedConditions.visibilityOf(toastResult));
+		return toastResult.getText();
+	}
 
-
+	public void testCompleted(int rolNum, int colNum, boolean isPassed, String message) throws Exception {
+		ExcelUtil.setCellData(rolNum, colNum, message);
+		if (isPassed) {
+			ExcelUtil.fillGreenColour(rolNum, colNum);
+		} else {
+			ExcelUtil.fillRedColour(rolNum, colNum);
+		}
+		Assert.assertTrue(isPassed);
+	}
+	
 }

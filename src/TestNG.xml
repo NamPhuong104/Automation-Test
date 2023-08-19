@@ -3,9 +3,9 @@
 <suite thread-count="1" verbose="1" name="Exercise" annotations="JDK"
 	parallel="tests">
 
-	<test name="orangelHRM">
+	<test name="orangeHRM">
 		<classes>
-			<class name="orangeHRM.assignLeave"/>
+			<class name="test.testOrangeHRMassignLeave"/>
 		</classes>
 	</test>
 </suite>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Automation_Test</name>
+	<name>GeneralFunction</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>ORANGEHRMFT/src/Data.xlsx</name>
+			<type>1</type>
+			<location>C:/Users/panda/Desktop/MainSubjects/Automation Test/Data.xlsx</location>
+		</link>
+	</linkedResources>
 </projectDescription>

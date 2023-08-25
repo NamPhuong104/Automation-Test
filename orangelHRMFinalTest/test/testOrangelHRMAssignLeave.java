@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -58,6 +59,8 @@ public class testOrangelHRMAssignLeave {
 	@Test()
 	public void TC_AL_01() throws Exception {
 		ExcelUtil.openFile(".\\orangelHRMFinalTest\\data\\TestData.xlsx", "AssignLeave");
+		Reporter.log("Open File");
+		Reporter.log("Enter Information With All Valid Required Fields");
 		assignLeave.inputUser(ExcelUtil.getCellData(1, 2));
 		assignLeave.chooseLeaveType(ExcelUtil.getCellData(1, 3));
 		assignLeave.chooseFromDate(ExcelUtil.getCellData(1, 4));
@@ -81,13 +84,16 @@ public class testOrangelHRMAssignLeave {
 		else{
 			common.testCompleted(1,25, false, "FAILED");
 		}
-		
+		Reporter.log("Write Result");
 		ExcelUtil.saveAndCloseFile(".//orangelHRMFinalTest//data//TestData.xlsx");
+		Reporter.log("Save And Close File");
 	}
 	
 	@Test()
 	public void TC_AL_02() throws Exception {
 		ExcelUtil.openFile(".\\orangelHRMFinalTest\\data\\TestData.xlsx", "AssignLeave");
+		Reporter.log("Open File");
+		Reporter.log("Enter Information With All Valid Required Fields");
 		assignLeave.inputUser(ExcelUtil.getCellData(2, 2));
 		assignLeave.chooseLeaveType(ExcelUtil.getCellData(2, 3));
 		assignLeave.chooseFromDate(ExcelUtil.getCellData(2, 4));
@@ -106,13 +112,16 @@ public class testOrangelHRMAssignLeave {
 		else{
 			common.testCompleted(2,25, false, "FAILED");
 		}
-		
+		Reporter.log("Write Result");
 		ExcelUtil.saveAndCloseFile(".//orangelHRMFinalTest//data//TestData.xlsx");
+		Reporter.log("Save And Close File");
 	}
 	
 	@Test()
 	public void TC_AL_03() throws Exception{
 		ExcelUtil.openFile(".\\orangelHRMFinalTest\\data\\TestData.xlsx", "AssignLeave");
+		Reporter.log("Open File");
+		Reporter.log("Enter Information With All Valid Required Fields");
 		assignLeave.inputUser(ExcelUtil.getCellData(3, 2));
 		assignLeave.chooseLeaveType(ExcelUtil.getCellData(3, 3));
 		assignLeave.chooseFromDate(ExcelUtil.getCellData(3, 4));
@@ -127,13 +136,16 @@ public class testOrangelHRMAssignLeave {
 		else{
 			common.testCompleted(3,25, false, "FAILED");
 		}
-		
+		Reporter.log("Write Result");
 		ExcelUtil.saveAndCloseFile(".//orangelHRMFinalTest//data//TestData.xlsx");
+		Reporter.log("Save And Close File");
 	}
 	
 	@Test()
 	public void TC_AL_04() throws Exception{
 		ExcelUtil.openFile(".\\orangelHRMFinalTest\\data\\TestData.xlsx", "AssignLeave");
+		Reporter.log("Open File");
+		Reporter.log("Enter Information With All Valid Required Fields");
 		assignLeave.inputUser(ExcelUtil.getCellData(4, 2));
 		assignLeave.chooseLeaveType(ExcelUtil.getCellData(4, 3));
 		assignLeave.chooseFromDate(ExcelUtil.getCellData(4, 4));
@@ -151,13 +163,16 @@ public class testOrangelHRMAssignLeave {
 		else{
 			common.testCompleted(4,25, false, "FAILED");
 		}
-		
+		Reporter.log("Write Result");
 		ExcelUtil.saveAndCloseFile(".//orangelHRMFinalTest//data//TestData.xlsx");
+		Reporter.log("Save And Close File");
 	}
 	
 	@Test()
 	public void TC_AL_05() throws Exception{
 		ExcelUtil.openFile(".\\orangelHRMFinalTest\\data\\TestData.xlsx", "AssignLeave");
+		Reporter.log("Open File");
+		Reporter.log("Enter Information With All Valid Required Fields");
 		assignLeave.inputUser(ExcelUtil.getCellData(5, 2));
 		assignLeave.chooseLeaveType(ExcelUtil.getCellData(5, 3));
 		assignLeave.chooseFromDate(ExcelUtil.getCellData(5, 4));
@@ -177,12 +192,16 @@ public class testOrangelHRMAssignLeave {
 		else{
 			common.testCompleted(5,25, false, "FAILED");
 		}
+		Reporter.log("Write Result");
 		ExcelUtil.saveAndCloseFile(".//orangelHRMFinalTest//data//TestData.xlsx");
+		Reporter.log("Save And Close File");
 	}
 	
 	@Test()
 	public void TC_AL_06() throws Exception {
 		ExcelUtil.openFile(".\\orangelHRMFinalTest\\data\\TestData.xlsx", "AssignLeave");
+		Reporter.log("Open File");
+		Reporter.log("Enter Information With All Valid Required Fields");
 		assignLeave.inputUser(ExcelUtil.getCellData(6, 2));
 		assignLeave.chooseLeaveType(ExcelUtil.getCellData(6, 3));
 		assignLeave.chooseFromDate(ExcelUtil.getCellData(6, 4));
@@ -201,8 +220,9 @@ public class testOrangelHRMAssignLeave {
 		else{
 			common.testCompleted(6,25, false, "FAILED");	
 		}
-		
+		Reporter.log("Write Result");
 		ExcelUtil.saveAndCloseFile(".//orangelHRMFinalTest//data//TestData.xlsx");
+		Reporter.log("Save And Close File");
 	}
 	
 }
